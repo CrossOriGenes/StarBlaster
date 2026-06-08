@@ -158,8 +158,8 @@ GameObject:
   - component: {fileID: 8417736335010508449}
   - component: {fileID: 7246198365856912490}
   m_Layer: 7
-  m_Name: Enemy
-  m_TagString: Untagged
+  m_Name: Enemy 1
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthManager
   health: 50
   hitParticles: {fileID: 2503135195618855626, guid: 22f381ba65e685740961871530226906, type: 3}
+  applyCameraShake: 1
 --- !u!114 &7246198365856912490
 MonoBehaviour:
   m_ObjectHideFlags: 0

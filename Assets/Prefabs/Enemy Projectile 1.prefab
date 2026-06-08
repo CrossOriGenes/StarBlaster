@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1212105973327715117}
   - component: {fileID: 180606324241020335}
   m_Layer: 7
-  m_Name: Enemy Projectile
+  m_Name: Enemy Projectile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f56771e097f377489520ff669a3fbf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damage: 1
+  damage: 10
 --- !u!1 &4307141581962672280
 GameObject:
   m_ObjectHideFlags: 0
