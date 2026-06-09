@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("Background Music")]
+    [SerializeField] AudioSource musicSource;
+
     [Header("Shooting SFX")]
     [SerializeField] AudioClip shootingClip;
     [SerializeField] [Range(0, 1)] float shootingVolume;
@@ -9,6 +12,26 @@ public class AudioManager : MonoBehaviour
     [Header("Damage SFX")]
     [SerializeField] AudioClip damageClip;
     [SerializeField] [Range(0, 1)] float damageVolume;
+
+    void Start()
+    {
+        if (musicSource != null) musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        if (musicSource != null) musicSource.Stop();
+    }
+
+    public void PauseMusic()
+    {
+        if (musicSource != null) musicSource.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        if (musicSource != null) musicSource.UnPause();
+    }
 
     public void PlayShootingSFX()
     {

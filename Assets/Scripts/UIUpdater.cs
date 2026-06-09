@@ -21,7 +21,6 @@ public class UIUpdater : MonoBehaviour
     void Update()
     {
         scoreText.text = scoreKeeper.GetScore().ToString("0000000000");
-        // int health = playerHealth.GetHealth();
         slider.value = playerHealth.GetHealth();
     }
 }

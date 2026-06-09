@@ -12,6 +12,7 @@ public class ScoreKeeper : MonoBehaviour
     public void SetScore(int value)
     {
         score = Mathf.Clamp(value, 0, int.MaxValue);
+        PlayerPrefs.SetInt("score", score);
         print(score);
     }
 

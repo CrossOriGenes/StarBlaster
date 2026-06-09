@@ -7,8 +7,7 @@ public class CameraShake : MonoBehaviour
     [SerializeField] float shakeIntensity = 0.5f;
 
     Vector3 initialCameraPosition;
-    Coroutine cameraShakeCoroutine;
-
+    
     void Start()
     {
         initialCameraPosition = transform.position;
@@ -16,12 +15,12 @@ public class CameraShake : MonoBehaviour
 
     public void Play()
     {
-        cameraShakeCoroutine = StartCoroutine(ShakeCamera());
+        StartCoroutine(ShakeCamera());
     }
 
     public void Stop()
     {
-        StopCoroutine(cameraShakeCoroutine);
+        StopAllCoroutines();
         transform.position = initialCameraPosition;        
     }
 

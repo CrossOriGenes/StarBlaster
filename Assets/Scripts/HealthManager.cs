@@ -4,16 +4,19 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] int health = 100;
     [SerializeField] ParticleSystem hitParticles;
-    [SerializeField] bool applyCameraShake;
+    bool applyCameraShake;
     CameraShake cameraShake;
     AudioManager audioManager;
     ScoreKeeper scoreKeeper;
+    LevelsManager levelsManager;
 
     void Start()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioManager = FindAnyObjectByType<AudioManager>();
         scoreKeeper = FindAnyObjectByType<ScoreKeeper>();
+        levelsManager = FindAnyObjectByType<LevelsManager>();
+        SetCameraShake(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,9 +41,8 @@ public class HealthManager : MonoBehaviour
                 int score = scoreKeeper.GetScore();
                 score += 50;
                 scoreKeeper.SetScore(score);
-            }
-            Destroy(gameObject);
-            if (gameObject.CompareTag("Player")) Die();
+                Destroy(gameObject);
+            } else Die(); 
         }
     }
 
@@ -58,12 +60,19 @@ public class HealthManager : MonoBehaviour
         return health;
     }
 
+    public void SetCameraShake(bool flag)
+    {
+        applyCameraShake = flag;
+    }
+
     void Die()
     {
-        Time.timeScale = 0f;
+        Destroy(gameObject);
+        SetCameraShake(false);
         cameraShake.Stop();
-        audioManager.StopAllCoroutines();
-        // Show game over screen
-        print("Game Over");
+        audioManager.StopMusic();
+        Time.timeScale = 0f;
+        levelsManager.LoadGameOverScene();
     }
+
 }
