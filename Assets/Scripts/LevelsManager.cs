@@ -10,7 +10,6 @@ public class LevelsManager : MonoBehaviour
 
     void Start()
     {
-        // Time.timeScale = 1f;
         if (scoreText != null)
         {
             score = PlayerPrefs.GetInt("score", 0);
